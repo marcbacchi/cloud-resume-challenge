@@ -46,12 +46,12 @@ htmml *{
 }
 .middle_left_container{
     position: relative;
-    width: 75%;
+    width: 80%;
     background: rgb(255, 255, 255);
 }
 .middle_right_container{
     position: relative;
-    width: 25%;
+    width: 20%;
     background: rgb(218, 218, 218);
 }
 .projects{
@@ -96,18 +96,29 @@ htmml *{
 .work_description .per_store{
     font-style: italic;
 }
-.skills_section{
+.education{
+    padding: 20px;
+}
+.education_header h1{
     text-align: center;
-    padding: 40px;
+    font-size: 36px;
+}
+.education_title{
+    font-size: 22px;
+}
+.education_date{
+    font-size: 15px;
+}
+.education_description{
+    font-size: 15px;
+}
+.skills_section{
+    /* display: flex; */
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
 }
 .skills_list h1{
-    font-size: 12px;
+    font-size: 14px;
 }
-.lower_container{
-    position: relative;
-    width: 100%;
-    padding: 40px;
-    background: rgb(255, 255, 255);
-}
-
-
