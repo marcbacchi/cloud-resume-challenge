@@ -1,0 +1,113 @@
+htmml *{
+    font-family: 'Calibri, Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif
+}
+
+.parent_container{
+    position: relative;
+    width: 100%;
+    max-width: 1024px;
+    background: rgb(207, 207, 207);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 20px 20px #888888;
+}
+.parent_container .upper_container{
+    position: relative;
+    width: 100%;
+    max-width: 1024px;
+    background: rgb(218, 218, 218);
+}
+.name_info{
+    padding: 20px;
+}
+.name_info h1{
+    text-align: center;
+    margin: auto;
+    font-size: 46px;
+}
+.name_info h2{
+    margin: auto;
+    text-align: center;
+    font-size: 16px;
+}
+.name_info h3{
+    text-align: center;
+    font-size: 14px;
+    margin: auto;
+}
+.middle_container{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 100%;
+    max-width: 1024px;
+    background: rgb(255, 255, 255);
+}
+.middle_left_container{
+    position: relative;
+    width: 75%;
+    background: rgb(255, 255, 255);
+}
+.middle_right_container{
+    position: relative;
+    width: 25%;
+    background: rgb(218, 218, 218);
+}
+.projects{
+    padding: 20px;
+}
+.project_header{
+    font-size: 36px;
+    border-bottom: 2px solid rgb(216, 216, 216);
+}
+.project_header h1{
+    text-align: center;
+    font-size: 36px;
+}
+.project_title h1{
+    font-size: 20px;
+}
+.project_title h2{
+    font-size: 14px;
+}
+.project_date{
+    font-size: 15px;
+}
+.work_experience{
+    padding: 20px;
+}
+.work_experience_header h1{
+    text-align: center;
+    font-size: 36px;
+}
+.work_experience_role{
+    border-top: 2px solid rgb(216, 216, 216);
+}
+.work_title{
+    font-size: 22px;
+}
+.work_title .company{
+    font-size: 15px;
+}
+.work_description{
+    font-size: 15px;
+}
+.work_description .per_store{
+    font-style: italic;
+}
+.skills_section{
+    text-align: center;
+    padding: 40px;
+}
+.skills_list h1{
+    font-size: 12px;
+}
+.lower_container{
+    position: relative;
+    width: 100%;
+    padding: 40px;
+    background: rgb(255, 255, 255);
+}
+
+
