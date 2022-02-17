@@ -24,6 +24,3 @@ def lambda_handler(event, context):
 
     return items
 
-# dynamodb = boto3.resource('dynamodb')
-# table = dynamodb.Table('counter')
-# print(table.creation_date_time)
