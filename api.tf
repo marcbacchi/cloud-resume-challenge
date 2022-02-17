@@ -1,21 +1,18 @@
-# API
-resource "aws_api_gateway_rest_api" "api" {
-  name = "myapi"
+# HTTP API
+resource "random_id" "id" {
+  byte_length = 8
 }
-
-resource "aws_api_gateway_resource" "resource" {
-  path_part   = "resource"
-  parent_id   = aws_api_gateway_rest_api.api.root_resource_id
-  rest_api_id = aws_api_gateway_rest_api.api.id
+resource "aws_apigatewayv2_api" "api" {
+	name          = "api-${random_id.id.hex}"
+  # name          = "api-specific-name"
+	protocol_type = "HTTP"
+	target        = aws_lambda_function.test_lambda.arn
 }
+# Permission
+resource "aws_lambda_permission" "apigw" {
+	action        = "lambda:InvokeFunction"
+	function_name = aws_lambda_function.test_lambda.arn
+	principal     = "apigateway.amazonaws.com"
 
-resource "aws_api_gateway_method" "method" {
-  rest_api_id   = aws_api_gateway_rest_api.api.id
-  resource_id   = aws_api_gateway_resource.resource.id
-  http_method   = "GET"
-  authorization = "NONE"
+	source_arn = "${aws_apigatewayv2_api.api.execution_arn}/*/*"
 }
-
-# resource "aws_api_gateway_integration" "integration" {
-#   count = 
-# }
