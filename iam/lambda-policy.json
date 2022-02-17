@@ -8,15 +8,9 @@
         "Resource": "*"
       },
       {
-        "Sid": "Stmt1645033006248",
+        "Sid": "Stmt1645070408381",
         "Action": [
-          "dynamodb:BatchGetItem",
-          "dynamodb:BatchWriteItem",
           "dynamodb:GetItem",
-          "dynamodb:GetRecords",
-          "dynamodb:ListTables",
-          "dynamodb:PutItem",
-          "dynamodb:Query",
           "dynamodb:UpdateItem"
         ],
         "Effect": "Allow",
