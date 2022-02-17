@@ -1,0 +1,26 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "Stmt1644977450582",
+        "Action": "logs:*",
+        "Effect": "Allow",
+        "Resource": "*"
+      },
+      {
+        "Sid": "Stmt1645033006248",
+        "Action": [
+          "dynamodb:BatchGetItem",
+          "dynamodb:BatchWriteItem",
+          "dynamodb:GetItem",
+          "dynamodb:GetRecords",
+          "dynamodb:ListTables",
+          "dynamodb:PutItem",
+          "dynamodb:Query",
+          "dynamodb:UpdateItem"
+        ],
+        "Effect": "Allow",
+        "Resource": "*"
+      }
+    ]
+  }
