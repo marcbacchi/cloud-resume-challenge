@@ -5,22 +5,31 @@ import os
 def lambda_handler(event, context):
     
     TABLE_NAME = "counter"
-    # create the db client variable
     db_client = boto3.client('dynamodb')
-    
-    #create table resources
     dynamodb = boto3.resource('dynamodb')
     table = dynamodb.Table(TABLE_NAME)
-    
-    #add 1 to the value
-    response = db_client.update_item(
+
+    update = db_client.update_item(
         TableName=TABLE_NAME,
         Key={"id": {"N": "0"}},
         UpdateExpression="ADD visitcount :inc",
         ExpressionAttributeValues={":inc": {"N": "1"}}
     )
 
-    items = table.get_item(Key={"id": 0})
+    getItems = table.get_item(Key={"id": 0})
+    itemsObjectOnly = getItems["Item"]
+    visitcount = itemsObjectOnly["visitcount"]
 
-    return items
-
+    response = {
+        "headers": {
+            "content-type": "application/json"
+        },
+        "status_code": 200,
+        "body": {
+            "count": visitcount
+        }
+    }
+    
+    # print(response)
+    return response
+    
