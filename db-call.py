@@ -29,7 +29,6 @@ def lambda_handler(event, context):
             "count": visitcount
         }
     }
-    
+
     # print(response)
     return response
-    
