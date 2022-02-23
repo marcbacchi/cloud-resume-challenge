@@ -10,3 +10,5 @@ deploy-infra:
 sync-site:
 	aws-vault exec Marc -- aws s3 sync ./resume-site s3://www.marcbacchi.dev
 
+destroy-dynamodb-table:
+	aws-vault exec Marc -- terraform destroy --target aws_dynamodb_table.dynamodbtable
