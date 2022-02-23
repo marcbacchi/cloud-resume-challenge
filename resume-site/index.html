@@ -102,11 +102,22 @@
             <h1>Databases</h1>
           </div>
         </div>
+        <div class="counter_text">
+          <h1>You are visitor:</h1>
+          <div id="counter">
+            <script>
+              fetch('https://snbeteyoeg.execute-api.us-east-1.amazonaws.com/')
+              .then(res => res.json())
+              .then(res => {document.getElementById("counter").innerHTML = res.body.count})
+                //"count" is the name of the element inside the JSON respone body
+                // from the Lambda api request response
+                // ex: {"headers": {headers_removed}, "status_code": 200, "body": {"count": 253}}
+            </script>
+          </div>
+        </div>
       </div>
     </div>
-
   </div>
-
 </body>
 
 </html>

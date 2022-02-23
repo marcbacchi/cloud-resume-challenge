@@ -22,10 +22,11 @@ def lambda_handler(event, context):
 
     response = {
         "headers": {
-            "content-type": "application/json"
+            "content-type" : "application/json",
+            # "Access-Control-Allow-Origin" : "*",
         },
         "status_code": 200,
-        "body": {
+        "body" : {
             "count": visitcount
         }
     }
