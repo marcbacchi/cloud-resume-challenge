@@ -1,15 +1,12 @@
 name: Tests using Cypress
-
 on: [push]
-
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
+    container: cypress/included:9.5.0
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          persist-credentials: false
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
       - name: Cypress run
