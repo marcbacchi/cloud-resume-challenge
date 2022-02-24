@@ -27,14 +27,14 @@ resource "aws_dynamodb_table" "dynamodbtable" {
 
 }
 
-resource "aws_dynamodb_table_item" "tableitem1" {
+resource "aws_dynamodb_table_item" "tableitem" {
   table_name = aws_dynamodb_table.dynamodbtable.name
   hash_key   = aws_dynamodb_table.dynamodbtable.hash_key
 
   item = <<ITEM
 {
   "id": {"N": "0"},
-  "visitcount": {"N": ""}
+  "visitcount": {"N": "0"}
 }
 ITEM
 }
