@@ -1,9 +1,0 @@
-cypress:  
-    name: Cypress API Test
-    on: [push]
-    jobs:
-      runs-on: ubuntu-latest
-      container: cypress/included:9.5.0
-      steps:
-        - uses: actions/checkout@v1
-        - run: cypress run
