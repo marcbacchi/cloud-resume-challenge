@@ -33,7 +33,7 @@ resource "aws_dynamodb_table_item" "tableitem" {
 
   item = <<ITEM
 {
-  "id": {"N": "0"},
+  "id": {"N": "0"}
 }
 ITEM
 }
