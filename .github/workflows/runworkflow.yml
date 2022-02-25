@@ -1,9 +1,30 @@
+
 name: Deploy infra, test API
 on:
   push:
     branches:
       - main
 jobs:
+
+  terraform:
+    name: terraform deploy all infra
+    runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
+      AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+      
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+
+    - name: Init
+      id: init
+      run: terraform init
+
+    - name: apply
+      id: apply
+      run: terraform apply --autoapprove
+
   cypress:  
     name: Cypress Test
     runs-on: ubuntu-latest
