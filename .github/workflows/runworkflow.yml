@@ -6,7 +6,7 @@ on:
       - main
 jobs:
 
-  terraform:
+  job-terraform:
     name: terraform deploy all infra
     runs-on: ubuntu-latest
     env:
@@ -23,11 +23,12 @@ jobs:
 
     - name: apply
       id: apply
-      run: terraform apply --autoapprove
+      run: terraform apply -auto-approve
 
-  cypress:  
-    name: Cypress Test
+  job-cypress:  
+    name: Cypress Testing API
     runs-on: ubuntu-latest
+    needs: job-terraform
     container: cypress/included:9.5.0
     steps:
       - uses: actions/checkout@v1
