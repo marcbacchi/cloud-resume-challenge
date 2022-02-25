@@ -13,7 +13,7 @@ def lambda_handler(event, context):
         TableName=TABLE_NAME,
         Key={"id": {"N": "0"}},
         UpdateExpression="ADD visitcount :inc",
-        ExpressionAttributeValues={":inc": {"N": "2"}}
+        ExpressionAttributeValues={":inc": {"N": "1"}}
     )
 
     getItems = table.get_item(Key={"id": 0})
