@@ -1,5 +1,7 @@
+/* *{margin:0; padding:0} */
+
 htmml *{
-    font-family: 'Calibri, Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif
+    font-family: system-ui;
 }
 
 .parent_container{

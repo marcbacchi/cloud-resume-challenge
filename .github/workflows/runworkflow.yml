@@ -25,6 +25,10 @@ jobs:
       id: apply
       run: terraform apply -auto-approve
 
+    - name: sync website files
+      id: sync web
+      run: aws s3 sync ./resume-site s3://www.marcbacchi.dev
+
   job-cypress:  
     name: Cypress Testing API
     runs-on: ubuntu-latest
