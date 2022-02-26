@@ -1,6 +1,6 @@
 # cloud-resume-challenge
 
-This project is my attempt of building an online resume, simply a static web page, serving my
+This project is my online resume, a static web page, serving my
 resume html and css written from scratch by myself, since I wanted to keep it as simple as 
 could be.
 
