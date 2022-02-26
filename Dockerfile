@@ -11,7 +11,7 @@ LABEL homepage="https://marcbacchi.dev"
 LABEL maintainer="Marc Bacchi <bacchimarc@pm.me>"
 
 # https://github.com/aws/aws-cli/blob/master/CHANGELOG.rst
-ENV AWSCLI_VERSION='2.4.15'
+ENV AWSCLI_VERSION='1.22.63'
 
 RUN pip install --quiet --no-cache-dir awscli==${AWSCLI_VERSION}
 
