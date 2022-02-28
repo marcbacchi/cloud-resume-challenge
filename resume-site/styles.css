@@ -18,7 +18,7 @@ htmml *{
     position: relative;
     width: 100%;
     max-width: 1024px;
-    background: rgb(218, 218, 218);
+    background: rgb(236, 236, 236);
 }
 .name_info{
     padding: 20px;
@@ -48,13 +48,13 @@ htmml *{
 }
 .middle_left_container{
     position: relative;
-    width: 80%;
+    width: 75%;
     background: rgb(255, 255, 255);
 }
 .middle_right_container{
     position: relative;
-    width: 20%;
-    background: rgb(218, 218, 218);
+    width: 25%;
+    background: rgb(236, 236, 236);
 }
 .projects{
     padding: 20px;
@@ -64,7 +64,7 @@ htmml *{
     border-bottom: 2px solid rgb(216, 216, 216);
 }
 .project_header h1{
-    text-align: center;
+    text-align: left;
     font-size: 36px;
 }
 .project_title h1{
@@ -80,7 +80,7 @@ htmml *{
     padding: 20px;
 }
 .work_experience_header h1{
-    text-align: center;
+    text-align: left;
     font-size: 36px;
 }
 .work_experience_role{
@@ -102,7 +102,7 @@ htmml *{
     padding: 20px;
 }
 .education_header h1{
-    text-align: center;
+    text-align: left;
     font-size: 36px;
 }
 .education_title{

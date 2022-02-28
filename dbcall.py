@@ -1,6 +1,6 @@
 import boto3
 from boto3.dynamodb.conditions import Key
-import os
+# import os
 
 def lambda_handler(event, context):
     
@@ -22,7 +22,7 @@ def lambda_handler(event, context):
 
     response = {
         "headers": {
-            "content-type" : "application/json",
+            "content-type" : "application/json"
             # "Access-Control-Allow-Origin" : "*",
         },
         "status_code": 200,
