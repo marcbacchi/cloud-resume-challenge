@@ -17,5 +17,3 @@ If you're deploying this from absolutely nothing:
 You will get a loop in the script when its waiting for Certificate validation
 Go you Namecheap (registrar), enter the Nameserver vlaues in your Custom DNS config, from the values now available in the AWS Route 53 details.
 Then it should continue on after a minute or two as the DCV is confirmed. Domain ownership.
-
-
