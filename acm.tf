@@ -6,7 +6,7 @@ resource "aws_acm_certificate" "ssl_certificate" {
   subject_alternative_names = ["www.${var.domain_name}"]
     
   # I had to comment out the subject_alternative_names value with 
-  # the wildcard "*" it was cauaing an issue on AWS ACM trying to create another 
+  # the wildcard "*" it was causing an issue on AWS ACM trying to create another 
   # cert for the additional domains, and failing "CNAME already exists" 
   # With explicit config using the "www." in the working value, this succeeded.
 

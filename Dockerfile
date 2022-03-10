@@ -5,10 +5,8 @@ LABEL "com.github.actions.description"="Sync dir or files to an AWS S3 bucket"
 LABEL "com.github.actions.icon"="refresh-cw"
 LABEL "com.github.actions.color"="green"
 
-# LABEL version="0.5.1"
 LABEL repository="https://github.com/marcbacchi/cloud-resume-challenge"
 LABEL homepage="https://marcbacchi.dev"
-# LABEL maintainer="Marc Bacchi <bacchimarc@pm.me>"
 
 # https://github.com/aws/aws-cli/blob/master/CHANGELOG.rst
 ENV AWSCLI_VERSION='1.22.63'
