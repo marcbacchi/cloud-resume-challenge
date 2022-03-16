@@ -8,7 +8,6 @@ LABEL "com.github.actions.color"="green"
 LABEL repository="https://github.com/marcbacchi/cloud-resume-challenge"
 LABEL homepage="https://marcbacchi.dev"
 
-# https://github.com/aws/aws-cli/blob/master/CHANGELOG.rst
 ENV AWSCLI_VERSION='1.22.63'
 
 RUN pip install --quiet --no-cache-dir awscli==${AWSCLI_VERSION}

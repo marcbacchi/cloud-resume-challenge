@@ -23,7 +23,6 @@ def lambda_handler(event, context):
     response = {
         "headers": {
             "content-type" : "application/json"
-            # "Access-Control-Allow-Origin" : "*",
         },
         "status_code": 200,
         "body" : {
@@ -31,5 +30,4 @@ def lambda_handler(event, context):
         }
     }
 
-    # print(response)
     return response
