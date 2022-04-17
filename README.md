@@ -30,3 +30,5 @@ Any push to Main branch will trigger the GitHub actions I created which will:
 All services were configured and provisioned by Terraform IaC code, from the beginning. I built 2 services in the AWS Console before realizing it would be better for my approach to do it all in IaC from the start.
 
 Plenty of changes can be made, I will be adding GitHub Issues to the repo for the items I plan on refactoring.
+
+* test txt here *
