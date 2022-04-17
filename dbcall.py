@@ -1,5 +1,5 @@
 import boto3
-from boto3.dynamodb.conditions import Key
+# from boto3.dynamodb.conditions import Key
 import os
 
 def lambda_handler(event, context):
