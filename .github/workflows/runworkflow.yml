@@ -1,5 +1,5 @@
 
-name: Deploy infra, test API
+name: Deploy Infra, Test API
 on:
   push:
     branches:
@@ -21,10 +21,14 @@ jobs:
       id: init
       run: terraform init
 
+    - name: plan
+      id: plan
+      run: terraform plan
+
     - name: apply
       id: apply
       run: terraform apply -auto-approve
-  
+
   job-sync-website:
     name: sync website files to s3 bucket
     runs-on: ubuntu-latest

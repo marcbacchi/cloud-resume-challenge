@@ -1,7 +1,7 @@
 FROM python:3.8-alpine
 
 LABEL "com.github.actions.name"="S3 Sync"
-LABEL "com.github.actions.description"="This uploads the html/css website files to the AWS S3 bucket for distribution"
+LABEL "com.github.actions.description"="This uploads the html/css website files to the S3 bucket"
 LABEL "com.github.actions.icon"="refresh-cw"
 LABEL "com.github.actions.color"="green"
 
