@@ -27,6 +27,9 @@ jobs:
 
     - name: Manual Workflow Approval
       uses: trstringer/manual-approval@v1.6.0
+      with:
+        secret: ${{ github.TOKEN }}
+        minimum-approvals: 1
 
     - name: apply
       id: apply
