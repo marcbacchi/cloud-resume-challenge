@@ -6,7 +6,7 @@ on:
       - main
 jobs:
 
-  job-terraform:
+  terraform:
     name: terraform deploy all infra
     runs-on: ubuntu-latest
     env:
@@ -24,9 +24,9 @@ jobs:
     - name: plan
       id: plan
       run: terraform plan
-      with:
-        command: wait
-        plan_contents: ${{steps.plan.outputs.stdout}}
+
+    - name: Manual Workflow Approval
+      uses: trstringer/manual-approval@v1.6.0
 
     - name: apply
       id: apply
