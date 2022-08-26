@@ -8,7 +8,7 @@ resource "aws_cloudfront_distribution" "www_s3_distribution" {
       http_port = 80
       https_port = 443
       origin_protocol_policy = "http-only"
-      origin_ssl_protocols = ["TLSv1", "TLSv1.1", "TLSv1.2"]
+      origin_ssl_protocols = ["TLSv1.2"]
     }
   }
 
@@ -54,7 +54,7 @@ resource "aws_cloudfront_distribution" "www_s3_distribution" {
   viewer_certificate {
     acm_certificate_arn = aws_acm_certificate_validation.cert.certificate_arn
     ssl_support_method = "sni-only"
-    minimum_protocol_version = "TLSv1.1_2016"
+    minimum_protocol_version = "TLSv1.2"
   }
 
   tags = var.common_tags
@@ -69,7 +69,7 @@ resource "aws_cloudfront_distribution" "root_s3_distribution" {
       http_port = 80
       https_port = 443
       origin_protocol_policy = "http-only"
-      origin_ssl_protocols = ["TLSv1", "TLSv1.1", "TLSv1.2"]
+      origin_ssl_protocols = ["TLSv1.2"]
     }
   }
 
@@ -108,7 +108,7 @@ resource "aws_cloudfront_distribution" "root_s3_distribution" {
   viewer_certificate {
     acm_certificate_arn = aws_acm_certificate_validation.cert.certificate_arn
     ssl_support_method = "sni-only"
-    minimum_protocol_version = "TLSv1.1_2016"
+    minimum_protocol_version = "TLSv1.2"
   }
 
   tags = var.common_tags
