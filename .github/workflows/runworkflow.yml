@@ -24,6 +24,8 @@ jobs:
     - name: plan
       id: plan
       run: terraform plan
+      with:
+        command: wait
 
     - name: apply
       id: apply
