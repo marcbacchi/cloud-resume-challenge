@@ -26,6 +26,7 @@ jobs:
       run: terraform plan
       with:
         command: wait
+        plan_contents: ${{steps.plan.outputs.stdout}}
 
     - name: apply
       id: apply
