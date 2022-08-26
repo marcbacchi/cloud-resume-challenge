@@ -30,7 +30,8 @@ jobs:
       with:
         secret: ${{ github.TOKEN }}
         minimum-approvals: 1
-
+        approvers: marcbacchi
+        
     - name: apply
       id: apply
       run: terraform apply -auto-approve
