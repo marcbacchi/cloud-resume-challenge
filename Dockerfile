@@ -11,7 +11,7 @@ LABEL homepage="https://marcbacchi.dev"
 ENV AWSCLI_VERSION='1.22.63'
 
 RUN pip install --upgrade pip
-RUN pip install --upgrade --quiet --no-cache-dir
+RUN pip install --quiet --no-cache-dir
 
 ADD entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
