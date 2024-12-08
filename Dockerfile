@@ -1,4 +1,4 @@
-FROM python:3.8-alpine
+FROM python:3.13-alpine
 
 LABEL "com.github.actions.name"="S3 Sync"
 LABEL "com.github.actions.description"="This uploads the html/css website files to the S3 bucket"
