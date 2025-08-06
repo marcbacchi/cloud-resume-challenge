@@ -20,7 +20,7 @@ jobs:
     - name: install-tf
       uses: hashicorp/setup-terraform@v2
       with:
-        terraform_version: 1.6.6  # or whatever version you want
+        terraform_version: 1.10.0
 
     - name: init
       id: init
