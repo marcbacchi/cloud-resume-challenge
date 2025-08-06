@@ -17,7 +17,12 @@ jobs:
     - name: checkout
       uses: actions/checkout@v2
 
-    - name: Init
+    - name: install-tf
+      uses: hashicorp/setup-terraform@v2
+      with:
+        terraform_version: 1.6.6  # or whatever version you want
+
+    - name: init
       id: init
       run: terraform init
 
