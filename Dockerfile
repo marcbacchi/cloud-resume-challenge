@@ -1,17 +1,23 @@
-FROM python:3.13-alpine
+FROM python:3.13-slim
 
 LABEL "com.github.actions.name"="S3 Sync"
-LABEL "com.github.actions.description"="This uploads the html/css website files to the S3 bucket"
+LABEL "com.github.actions.description"="Uploads website files to an S3 bucket"
 LABEL "com.github.actions.icon"="refresh-cw"
 LABEL "com.github.actions.color"="green"
-
 LABEL repository="https://github.com/marcbacchi/cloud-resume-challenge"
 LABEL homepage="https://marcbacchi.dev"
 
-ENV AWSCLI_VERSION='1.22.63'
+# Install curl, unzip, and AWS CLI v2
+RUN apt-get update && \
+    apt-get install -y curl unzip && \
+    curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
+    unzip awscliv2.zip && \
+    ./aws/install && \
+    rm -rf awscliv2.zip aws && \
+    apt-get clean
 
-# RUN python -m pip install --upgrade pip
-# RUN pip install --quiet --no-cache-dir
+# Add your entrypoint
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
-ADD entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
