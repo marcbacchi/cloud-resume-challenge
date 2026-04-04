@@ -1,3 +1,12 @@
+locals {
+  cors_rule = {
+    allowed_headers = ["Authorization", "Content-Length"]
+    allowed_methods = ["GET", "POST"]
+    allowed_origins = ["*"]
+    max_age_seconds = 10
+  }
+}
+
 # S3 bucket for website.
 resource "aws_s3_bucket" "www_bucket" {
   bucket = "www.${var.bucket_name}"
@@ -14,10 +23,10 @@ resource "aws_s3_bucket_cors_configuration" "www_bucket_cors" {
   bucket = aws_s3_bucket.www_bucket.id
 
   cors_rule {
-    allowed_headers = ["Authorization", "Content-Length"]
-    allowed_methods = ["GET", "POST"]
-    allowed_origins = ["*"]
-    max_age_seconds = 10
+    allowed_headers = local.cors_rule.allowed_headers
+    allowed_methods = local.cors_rule.allowed_methods
+    allowed_origins = local.cors_rule.allowed_origins
+    max_age_seconds = local.cors_rule.max_age_seconds
   }
 }
 
@@ -54,10 +63,10 @@ resource "aws_s3_bucket_cors_configuration" "root_bucket_cors" {
   bucket = aws_s3_bucket.root_bucket.id
 
   cors_rule {
-    allowed_headers = ["Authorization", "Content-Length"]
-    allowed_methods = ["GET", "POST"]
-    allowed_origins = ["*"]
-    max_age_seconds = 10
+    allowed_headers = local.cors_rule.allowed_headers
+    allowed_methods = local.cors_rule.allowed_methods
+    allowed_origins = local.cors_rule.allowed_origins
+    max_age_seconds = local.cors_rule.max_age_seconds
   }
 }
 
@@ -65,7 +74,7 @@ resource "aws_s3_bucket_website_configuration" "root_bucket_website" {
   bucket = aws_s3_bucket.root_bucket.id
 
   redirect_all_requests_to {
-    host_name = "https://www.${var.domain_name}"
+    host_name = "www.${var.domain_name}"
     protocol  = "https"
   }
 }
