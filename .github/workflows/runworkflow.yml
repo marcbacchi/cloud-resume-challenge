@@ -61,16 +61,62 @@ jobs:
         # AWS_REGION: 'us-east-1'   # optional: defaults to us-east-1
         SOURCE_DIR: 'resume-site'      # optional: defaults to entire repository
 
-  job-cypress:
-    name: Cypress Tests
+  job-smoke-tests:
+    name: Smoke Tests
     runs-on: ubuntu-latest
     needs: job-sync-website
-    container: cypress/included:9.5.0
     steps:
-      - name: checkout
+      - name: API health check
         run: |
-          git init
-          git remote add origin https://github.com/${{ github.repository }}.git
-          git fetch --depth=1 origin ${{ github.ref }}
-          git checkout FETCH_HEAD
-      - run: cypress run
+          API_URL="https://d503n28gj5.execute-api.us-east-1.amazonaws.com/"
+          response=$(curl -s "$API_URL")
+          status=$(curl -s -o /dev/null -w "%{http_code}" "$API_URL")
+
+          echo "API Status: $status"
+          echo "API Response: $response"
+
+          if [ "$status" != "200" ]; then
+            echo "❌ API returned status $status (expected 200)"
+            exit 1
+          fi
+
+          # Verify response contains valid JSON with count field
+          count=$(echo "$response" | grep -o '"count":[0-9]*' | cut -d: -f2)
+          if [ -z "$count" ]; then
+            echo "❌ API response missing 'count' field"
+            exit 1
+          fi
+
+          echo "✅ API health check passed (visitor count: $count)"
+
+      - name: Website homepage check
+        run: |
+          WEBSITE_URL="https://www.marcbacchi.dev"
+          status=$(curl -s -o /dev/null -w "%{http_code}" "$WEBSITE_URL")
+
+          echo "Website Status: $status"
+
+          if [ "$status" != "200" ]; then
+            echo "❌ Website returned status $status (expected 200)"
+            exit 1
+          fi
+
+          echo "✅ Website is accessible"
+
+      - name: Website content check
+        run: |
+          WEBSITE_URL="https://www.marcbacchi.dev"
+          response=$(curl -s "$WEBSITE_URL")
+
+          # Check for essential HTML structure
+          if ! echo "$response" | grep -q "<!DOCTYPE"; then
+            echo "❌ Website missing DOCTYPE"
+            exit 1
+          fi
+
+          # Check for content (basic smoke test)
+          if ! echo "$response" | grep -qi "resume\|projects\|skills\|contact"; then
+            echo "⚠️  Warning: Website may be missing expected resume content"
+          fi
+
+          echo "✅ Website content check passed"
