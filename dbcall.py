@@ -74,7 +74,7 @@ def format_success_response(count):
             'Content-Type': 'application/json'
         },
         'body': json.dumps({
-            'count': count
+            'count': int(count)
         })
     }
 
