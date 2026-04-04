@@ -133,7 +133,10 @@
           <script>
             fetch('https://d503n28gj5.execute-api.us-east-1.amazonaws.com/', { signal: AbortSignal.timeout(5000) })
             .then(res => res.json())
-            .then(res => {document.getElementById("counter").innerHTML = res.body.count})
+            .then(res => {
+              const bodyObj = JSON.parse(res.body);
+              document.getElementById("counter").innerHTML = bodyObj.count;
+            })
             .catch(err => {
               console.error('Failed to load counter:', err);
               document.getElementById("counter").innerHTML = 'Unable to load';
