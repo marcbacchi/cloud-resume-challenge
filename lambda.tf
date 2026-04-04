@@ -16,5 +16,6 @@ resource "aws_lambda_function" "lambda_func" {
   handler       = "dbcall.lambda_handler"
   source_code_hash = "${filebase64sha256(local.lambda_zip_location)}"
   runtime = "python3.9"
+  timeout = 10
 
 }

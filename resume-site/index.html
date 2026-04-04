@@ -129,14 +129,16 @@
         <div class="counter_text">
           <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
           <h1>You are visitor:</h1>
-          <div id="counter">
-            <script>
-              fetch('https://d503n28gj5.execute-api.us-east-1.amazonaws.com/')
-              .then(res => res.json())
-              .then(res => {document.getElementById("counter").innerHTML = res.body.count})
-              .then(data => console.log(data));
-            </script>
-          </div>
+          <div id="counter">Loading...</div>
+          <script>
+            fetch('https://d503n28gj5.execute-api.us-east-1.amazonaws.com/', { signal: AbortSignal.timeout(5000) })
+            .then(res => res.json())
+            .then(res => {document.getElementById("counter").innerHTML = res.body.count})
+            .catch(err => {
+              console.error('Failed to load counter:', err);
+              document.getElementById("counter").innerHTML = 'Unable to load';
+            });
+          </script>
         </div>
       </div>
     </div>
