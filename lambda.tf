@@ -15,7 +15,13 @@ resource "aws_lambda_function" "lambda_func" {
   role          = "${aws_iam_role.lambda_role.arn}"
   handler       = "dbcall.lambda_handler"
   source_code_hash = "${filebase64sha256(local.lambda_zip_location)}"
-  runtime = "python3.9"
-  timeout = 10
+  runtime       = "python3.11"
+  timeout       = 30
+  memory_size   = 256
 
+  environment {
+    variables = {
+      DYNAMODB_TABLE_NAME = aws_dynamodb_table.dynamodbtable.name
+    }
+  }
 }
