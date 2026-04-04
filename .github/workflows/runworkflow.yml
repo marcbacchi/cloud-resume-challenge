@@ -15,7 +15,7 @@ jobs:
       
     steps:
     - name: checkout
-p      run: |
+      run: |
         git init
         git remote add origin https://github.com/${{ github.repository }}.git
         git fetch --depth=1 origin ${{ github.ref }}
@@ -61,11 +61,16 @@ p      run: |
         # AWS_REGION: 'us-east-1'   # optional: defaults to us-east-1
         SOURCE_DIR: 'resume-site'      # optional: defaults to entire repository
 
-  job-cypress:  
+  job-cypress:
     name: Cypress Tests
     runs-on: ubuntu-latest
     needs: job-sync-website
     container: cypress/included:9.5.0
     steps:
-      - uses: actions/checkout@v1
+      - name: checkout
+        run: |
+          git init
+          git remote add origin https://github.com/${{ github.repository }}.git
+          git fetch --depth=1 origin ${{ github.ref }}
+          git checkout FETCH_HEAD
       - run: cypress run
