@@ -11,7 +11,6 @@ logger.setLevel(logging.INFO)
 def lambda_handler(event, context):
     """
     Visitor counter Lambda function with improved error handling, logging, and response consistency.
-    
     Returns a properly formatted Lambda proxy integration response with status code, headers, and JSON body.
     """
     try:

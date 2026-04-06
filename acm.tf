@@ -19,9 +19,7 @@ resource "aws_acm_certificate" "ssl_certificate" {
   # Once saved after a few seconds maybe a minute, the step will succeed and continue.
 
   validation_method = "DNS"
-
   tags = var.common_tags
-
   lifecycle {
     create_before_destroy = true
   }
