@@ -131,15 +131,37 @@
           <h1>You are visitor:</h1>
           <div id="counter">Loading...</div>
           <script>
-            fetch('https://d503n28gj5.execute-api.us-east-1.amazonaws.com/', { signal: AbortSignal.timeout(5000) })
-            .then(res => res.json())
-            .then(res => {
-              document.getElementById("counter").innerHTML = res.count;
-            })
-            .catch(err => {
-              console.error('Failed to load counter:', err);
-              document.getElementById("counter").innerHTML = 'Unable to load';
-            });
+            // Check if visitor has already been counted (cookie-based deduplication)
+            const cookieName = 'visited_resume';
+            const hasCookie = document.cookie.split('; ').some(row => row.startsWith(cookieName + '='));
+
+            if (hasCookie) {
+              // Returning visitor - display cached count without API call
+              const cachedCount = localStorage.getItem('resumeVisitorCount');
+              if (cachedCount) {
+                document.getElementById("counter").innerHTML = cachedCount;
+              } else {
+                document.getElementById("counter").innerHTML = 'Loading...';
+              }
+            } else {
+              // New visitor - call API to increment and cache count
+              fetch('https://d503n28gj5.execute-api.us-east-1.amazonaws.com/', { signal: AbortSignal.timeout(5000) })
+              .then(res => res.json())
+              .then(res => {
+                const count = res.count;
+                document.getElementById("counter").innerHTML = count;
+                // Cache the count in localStorage for returning visitors
+                localStorage.setItem('resumeVisitorCount', count);
+                // Set cookie: 30-day expiry, SameSite=Lax for security
+                const expiryDate = new Date();
+                expiryDate.setTime(expiryDate.getTime() + (30 * 24 * 60 * 60 * 1000));
+                document.cookie = `${cookieName}=true; expires=${expiryDate.toUTCString()}; SameSite=Lax; path=/`;
+              })
+              .catch(err => {
+                console.error('Failed to load counter:', err);
+                document.getElementById("counter").innerHTML = 'Unable to load';
+              });
+            }
           </script>
         </div>
       </div>
