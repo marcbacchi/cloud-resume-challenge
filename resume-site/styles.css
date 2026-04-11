@@ -32,10 +32,8 @@ html *{
     margin: auto;
     text-align: center;
     font-size: 16px;
-    /* padding: 10px; */
 }
 .name_info h3{
-    /* padding: 10px; */
     text-align: center;
     font-size: 14px;
     margin: auto;
@@ -57,22 +55,19 @@ html *{
     position: relative;
     width: 25%;
     background: rgb(236, 236, 236);
+    overflow: hidden;
 }
 .projects{
     padding: 20px;
 }
-.project_header{
-    font-size: 36px;
-    /* border-bottom: 2px solid rgb(216, 216, 216); */
-}
-.project_header h1{
+.project_header h2{
     text-align: left;
     font-size: 36px;
 }
-.project_title h1{
+.project_title h3{
     font-size: 20px;
 }
-.project_title h2{
+.project_title p{
     font-size: 14px;
 }
 .project_date{
@@ -81,13 +76,10 @@ html *{
 .work_experience{
     padding: 20px;
 }
-.work_experience_header h1{
+.work_experience_header h2{
     text-align: left;
     font-size: 36px;
 }
-/* .work_experience_role{
-    border-top: 2px solid rgb(216, 216, 216);
-} */
 .work_title{
     font-size: 22px;
 }
@@ -96,6 +88,7 @@ html *{
 }
 .work_description{
     font-size: 15px;
+    margin: 2px 0;
 }
 .work_description .per_store{
     font-style: italic;
@@ -103,11 +96,11 @@ html *{
 .education{
     padding: 20px;
 }
-.education_header h1{
+.education_header h2{
     text-align: left;
     font-size: 36px;
 }
-.education_title{
+.education_title_item{
     font-size: 22px;
 }
 .education_date{
@@ -115,23 +108,36 @@ html *{
 }
 .education_description{
     font-size: 15px;
+    margin: 2px 0;
 }
 .skills_section{
-    /* display: flex; */
     text-align: center;
     align-items: center;
     justify-content: center;
     padding: 30px;
 }
-.skills_header h1{
+.skills_header h2{
     text-align: center;
     font-size: 36px;
 }
-.skills_list h1{
+.skills_list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.skills_list li{
     font-size: 15px;
 }
-.counter_text h1{
-    /* border-top: 2px solid rgb(0, 0, 0); */
+.credential_badge{
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    overflow: hidden;
+}
+.counter_text{
+    margin-top: 40px;
+}
+.counter_text p{
     font-size: 14px;
     text-align: center;
     padding: 10px;
@@ -141,4 +147,15 @@ html *{
     font-size: 12px;
     margin: 0 auto;
     text-align: center;
+}
+
+/* Mobile: stack columns vertically on narrow screens */
+@media (max-width: 768px) {
+    .middle_container {
+        flex-direction: column;
+    }
+    .middle_left_container,
+    .middle_right_container {
+        width: 100%;
+    }
 }
