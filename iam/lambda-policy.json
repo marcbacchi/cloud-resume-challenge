@@ -1,20 +1,23 @@
 {
-    "Version": "2012-10-17",
-    "Statement": [
-      {
-        "Sid": "Stmt1644977450582",
-        "Action": "logs:*",
-        "Effect": "Allow",
-        "Resource": "*"
-      },
-      {
-        "Sid": "Stmt1645070408381",
-        "Action": [
-          "dynamodb:GetItem",
-          "dynamodb:UpdateItem"
-        ],
-        "Effect": "Allow",
-        "Resource": "*"
-      }
-    ]
-  }
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "CloudWatchLogs",
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "DynamoDB",
+      "Effect": "Allow",
+      "Action": [
+        "dynamodb:UpdateItem"
+      ],
+      "Resource": "*"
+    }
+  ]
+}

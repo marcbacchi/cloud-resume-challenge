@@ -1,23 +1,18 @@
-
-locals {
-    lambda_zip_location = "outputs/dbcall.zip"
-}
-
 data "archive_file" "dbcall" {
   type        = "zip"
   source_file = "dbcall.py"
-  output_path = "${local.lambda_zip_location}"
+  output_path = "outputs/dbcall.zip"
 }
 
 resource "aws_lambda_function" "lambda_func" {
-  filename      = "${local.lambda_zip_location}"
-  function_name = "dbcall"
-  role          = "${aws_iam_role.lambda_role.arn}"
-  handler       = "dbcall.lambda_handler"
-  source_code_hash = "${filebase64sha256(local.lambda_zip_location)}"
-  runtime       = "python3.11"
-  timeout       = 30
-  memory_size   = 256
+  filename         = data.archive_file.dbcall.output_path
+  function_name    = "dbcall"
+  role             = aws_iam_role.lambda_role.arn
+  handler          = "dbcall.lambda_handler"
+  source_code_hash = data.archive_file.dbcall.output_base64sha256
+  runtime          = "python3.11"
+  timeout          = 10
+  memory_size      = 128
 
   environment {
     variables = {
