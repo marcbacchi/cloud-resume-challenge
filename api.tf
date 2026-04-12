@@ -3,7 +3,10 @@ resource "aws_apigatewayv2_api" "api" {
   protocol_type = "HTTP"
   target        = aws_lambda_function.lambda_func.arn
   cors_configuration {
-    allow_origins = ["*"]
+    allow_origins = ["https://${var.domain_name}", "https://www.${var.domain_name}"]
+    allow_methods = ["GET", "OPTIONS"]
+    allow_headers = ["Content-Type", "Accept"]
+    max_age       = 300
   }
 }
 
