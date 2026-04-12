@@ -134,8 +134,14 @@ html *{
     padding: 10px 0;
     overflow: hidden;
 }
+.lower_container{
+    position: relative;
+    width: 100%;
+    background: rgb(236, 236, 236);
+    padding: 20px 0;
+}
 .counter_text{
-    margin-top: 40px;
+    margin: 0;
 }
 .counter_text p{
     font-size: 14px;
