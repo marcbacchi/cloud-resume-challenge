@@ -113,7 +113,7 @@ jobs:
 
       - name: "8 — API CORS header present"
         run: |
-          cors=$(curl -sI --max-time 10 "$API_URL" | grep -i "^access-control-allow-origin:" | tr -d '\r\n')
+          cors=$(curl -sI --max-time 10 -H "Origin: $SITE_URL" "$API_URL" | grep -i "^access-control-allow-origin:" | tr -d '\r\n')
           echo "CORS: $cors"
           [ -n "$cors" ] || { echo "Missing Access-Control-Allow-Origin header"; exit 1; }
           echo "PASS"
