@@ -130,7 +130,10 @@ html *{
 }
 .credential_badge{
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    gap: 5px;
     padding: 10px 0;
     overflow: hidden;
 }
