@@ -31,20 +31,16 @@
 
     <div class="middle_container">
       <div class="middle_left_container">
-        <div class="projects">
-          <div class="project_header">
-            <h2>Projects</h2>
+      <div class="summary">
+          <div class="summary_header">
+              <h2>Summary</h2>
           </div>
-            <div class="project_title">
-                <h3 class="project_title_item">Cloud Resume Challenge <span class='project_date'>| Feb 2022</span></h3>
-                <p class="project_description">Built this static website involving many AWS services. See Github repo for diagrams and code base.</p>
-                <p class="project_description">Infrastructure is managed with Terraform (IaC), and deployments are automated via GitHub Actions CI/CD, triggered on pull request merges to main branch. Cypress handles testing for HTML/CSS integrity and URL liveness.</p>
-                <p class="project_description">
-                    Browse the code in my <a href="https://github.com/marcbacchi/cloud-resume-challenge" target="_blank">GitHub Repo</a>,
-                    or learn about the challenge itself on the <a href="https://cloudresumechallenge.dev/docs/the-challenge/aws/" target="_blank">Cloud Resume Challenge</a> website.
-                </p>
-            </div>
-        </div>
+          <div class="summary_block">
+              <p class="project_description">Cloud infrastructure engineer with over 4 years of hands-on experience operating production Kubernetes and AWS environments. My focus is the platform layer that development teams build on: shared EKS clusters running containerized Docker workloads, multi-account and multi-environment AWS setups, and infrastructure managed as code with Terraform.</p>
+              <p class="project_description">My experience includes planning and running Kubernetes control plane and node upgrades, maintaining cluster add-ons such as cert-manager, ExternalDNS, and the EBS/EFS CSI storage drivers, managing infrastructure changes through Terraform and CI/CD pipelines, and tightening security and configuration across AWS services. I have supported the teams that deploy on the platform, including on-call rotations where I responded to production incidents and helped restore affected services. I have also built data pipelines with AWS Glue and integrated their output with Splunk for analysis.</p>
+              <p class="project_description">Before moving into cloud engineering, I spent several years in application support and technical analyst roles. That background gave me a practical, troubleshooting-first approach to infrastructure and a habit of working closely with both developers and business stakeholders.</p>
+          </div>
+      </div>
         <div class="work_experience">
           <div class="work_experience_header">
             <h2>Professional Experience</h2>
@@ -103,7 +99,20 @@
             <p class="work_description">- Helped build a new support team through interviewing and assessing technical aptitude, then trained and mentored team members in Linux, databases, APIs, and ticketing systems.</p>
           </div>
         </div>
-
+          <div class="projects">
+              <div class="project_header">
+                  <h2>Projects</h2>
+              </div>
+              <div class="project_title">
+                  <h3 class="project_title_item">Cloud Resume Challenge <span class='project_date'>| Feb 2022</span></h3>
+                  <p class="project_description">Built this static website involving many AWS services. See Github repo for diagrams and code base.</p>
+                  <p class="project_description">Infrastructure is managed with Terraform (IaC), and deployments are automated via GitHub Actions CI/CD, triggered on pull request merges to main branch. Cypress handles testing for HTML/CSS integrity and URL liveness.</p>
+                  <p class="project_description">
+                      Browse the code in my <a href="https://github.com/marcbacchi/cloud-resume-challenge" target="_blank">GitHub Repo</a>,
+                      or learn about the challenge itself on the <a href="https://cloudresumechallenge.dev/docs/the-challenge/aws/" target="_blank">Cloud Resume Challenge</a> website.
+                  </p>
+              </div>
+          </div>
         <div class="education">
           <div class="education_header">
             <h2>Education</h2>
@@ -113,7 +122,6 @@
             <p class="education_description">- Graduated with Honors | July 2012</p>
           </div>
         </div>
-
       </div>
       <div class="middle_right_container">
         <div class="skills_section">
@@ -121,9 +129,8 @@
             <h2>Skills</h2>
           </div>
           <ul class="skills_list">
-            <li>AWS | Cloud</li>
+            <li>AWS | Terraform</li>
             <li>Kubernetes | EKS</li>
-            <li>Terraform</li>
             <li>Docker | Containers</li>
             <li>CI/CD | GitHub Actions</li>
             <li>Jenkins</li>
@@ -182,5 +189,4 @@
     </div>
   </div>
 </body>
-
 </html>

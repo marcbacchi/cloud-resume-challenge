@@ -57,6 +57,16 @@ html *{
     background: rgb(236, 236, 236);
     overflow: hidden;
 }
+.summary{
+    padding: 20px;
+}
+.summary_header h2{
+    text-align: left;
+    font-size: 36px;
+}
+.summary_block p{
+    font-size: 14px;
+}
 .projects{
     padding: 20px;
 }
